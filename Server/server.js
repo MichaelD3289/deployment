@@ -7,10 +7,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 })
 
-// app.get('/css', (req, res) => {
-//   res.sendFile(path.join(__dirname, './styles.css'))
-// })
-
 app.use(express.static(path.join(__dirname, '../')))
 
 const port = process.env.PORT || 4005;
