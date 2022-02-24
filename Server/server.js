@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const rewardsUsers = require('./db.json');
 
 const app = express();
 app.use(express.json());
@@ -19,10 +20,18 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 })
 
-app.use(express.static(path.join(__dirname, '../')))
+app.get('/endpoint', (req, res) => {
+  try {
+    nonExistentFunction();
+  } catch (error) {
+    rollbar.error(error);
+  }
+})
+
+app.use(express.static(path.join(__dirname, '../')));
 
 const port = process.env.PORT || 4005;
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(`Listening on port ${port}`);
 })
