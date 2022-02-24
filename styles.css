@@ -30,7 +30,7 @@ header {
 }
 
 .navLink:hover {
-  border-bottom: black 2px solid;
+  border-bottom: rgb(56, 56, 56) 2px solid;
 }
 /* .navLink:hover::after {
   content: ' *';
