@@ -21,10 +21,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/api/rewards/users', (req, res) => {
-  try {
-    nonExistentFunction();
-  } catch (error) {
-    rollbar.error(error);
+  let {name, birthday, email} = req.body;
+
+  const index = rewardsUsers.findIndex(rUser => rUser.email === email);
+
+  const newUser = {
+    name,
+    birthday,
+    email
+  }
+  if(index === -1) {
+    rewardsUsers.push(newUser);
+    rollbar.log('User successfully added to rewards program', {author: 'Michael', type: 'manual entry'})
+    res.status(200).send('You have been successfully added');
+  } else {
+    rollbar.critical('User already exists in system')
+    res.status(400).send('User already exists in rewards program')
   }
 })
 
