@@ -7,7 +7,7 @@ function submitRewardsUser (e) {
   e.preventDefault();
 
   axios
-    .post('/api/student'), {
+    .post('/api/rewards/users'), {
     name: nameInput.value,
     birthday: birthdayInput.value,
     email: emailInput.value
