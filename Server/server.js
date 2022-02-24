@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 })
 
-app.get('/rewards/users', (req, res) => {
+app.post('/api/rewards/users', (req, res) => {
   try {
     nonExistentFunction();
   } catch (error) {
