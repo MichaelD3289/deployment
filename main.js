@@ -6,12 +6,14 @@ const emailForm = document.querySelector('#emailForm');
 function submitRewardsUser (e) {
   e.preventDefault();
 
-  axios
-    .post('/api/rewards/users'), {
+  const body = {
     name: nameInput.value,
     birthday: birthdayInput.value,
     email: emailInput.value
   }
+
+  axios
+    .post('/api/rewards/users', body)
     .then(res => {
       console.log(res);
     })
