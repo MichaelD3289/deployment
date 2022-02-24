@@ -34,6 +34,9 @@ app.post('/api/rewards/users', (req, res) => {
     rewardsUsers.push(newUser);
     rollbar.log('User successfully added to rewards program', {author: 'Michael', type: 'manual entry'})
     res.status(200).send('You have been successfully added');
+  } else if (!email.includes('@'))  {
+    rollbar.error('Email address is not valid')
+    res.status(400).send('User needs to submit a valid email address')
   } else {
     rollbar.critical('User already exists in system')
     res.status(400).send('User already exists in rewards program')

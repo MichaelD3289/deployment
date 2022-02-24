@@ -16,6 +16,10 @@ function submitRewardsUser (e) {
       console.log(res);
     })
     .catch(err => console.log(err))
+
+    nameInput.value = "";
+    birthdayInput.value = "";
+    emailInput.value = "";
 }
 
 emailForm.addEventListener('submit', submitRewardsUser);
