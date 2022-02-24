@@ -44,7 +44,7 @@ app.post('/api/rewards/users', (req, res) => {
 })
 
 app.use(express.static(path.join(__dirname, '../')));
-app.use(rollbar.errorhandler())
+// app.use(rollbar.errorhandler());
 
 const port = process.env.PORT || 4005;
 app.listen(port, () => {
